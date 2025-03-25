@@ -1,0 +1,88 @@
+.home-container {
+  max-width: 800px;
+  margin: 80px auto 100px; /* Adjusted for navbar offset and bottom spacing */
+  padding: 2.5rem; /* Slightly more padding */
+  background: #ffffff; /* White background for consistency */
+  border-radius: 15px; /* Softer corners */
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15); /* Deeper shadow */
+  text-align: center;
+  font-family: 'Poppins', sans-serif;
+  animation: fadeIn 0.5s ease-in; /* Subtle fade-in */
+}
+
+.home-container h1 {
+  color: #333;
+  font-size: 2.5rem; /* Larger for emphasis */
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+}
+
+.home-container p {
+  color: #555; /* Softer gray */
+  font-size: 1.2rem; /* Larger for readability */
+  line-height: 1.6; /* Better spacing */
+  margin-bottom: 2rem;
+}
+
+.home-actions {
+  margin-top: 2.5rem; /* More spacing */
+  display: flex; /* Side-by-side buttons */
+  justify-content: center; /* Centered horizontally */
+  gap: 1.5rem; /* Consistent spacing between buttons */
+}
+
+.home-btn {
+  display: inline-block;
+  padding: 0.85rem 2rem; /* Larger padding */
+  background: linear-gradient(135deg, #6e8efb, #a777e3); /* Matches navbar */
+  color: #ffffff;
+  text-decoration: none;
+  border-radius: 8px; /* Softer edges */
+  font-size: 1.1rem; /* Larger text */
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.home-btn:hover {
+  background: linear-gradient(135deg, #a777e3, #6e8efb); /* Reverse gradient */
+  transform: translateY(-3px); /* More lift */
+  box-shadow: 0 6px 15px rgba(110, 142, 251, 0.4); /* Stronger shadow */
+}
+
+/* Animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .home-container {
+    margin: 60px 1rem 80px; /* Adjust margins */
+    padding: 2rem;
+  }
+
+  .home-container h1 {
+    font-size: 2rem;
+  }
+
+  .home-container p {
+    font-size: 1rem;
+  }
+
+  .home-actions {
+    flex-direction: column; /* Stack buttons on smaller screens */
+    gap: 1rem;
+  }
+
+  .home-btn {
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+  }
+}

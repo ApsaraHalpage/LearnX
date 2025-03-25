@@ -1,0 +1,85 @@
+.navbar {
+  background: linear-gradient(135deg, #6e8efb, #a777e3); /* Vibrant gradient background */
+  padding: 1rem 2rem;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: 'Poppins', sans-serif; /* Modern font - ensure it's imported */
+}
+
+/* Links styling */
+.navbar a {
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 1.1rem;
+  font-weight: 500;
+  padding: 0.5rem 1rem;
+  border-radius: 25px; /* Rounded edges */
+  transition: all 0.3s ease; /* Smooth transitions */
+  margin-right: 1rem; /* Spacing between links */
+}
+
+/* Hover effect for links */
+.navbar a:hover {
+  background-color: rgba(255, 255, 255, 0.1); /* Slight white overlay */
+  color: #fff;
+  transform: translateY(-2px); /* Slight lift effect */
+}
+
+/* User info section */
+.navbar div {
+  display: flex;
+  align-items: center;
+  gap: 1rem; /* Spacing between welcome text and button */
+}
+
+/* Welcome text */
+.navbar span {
+  color: #ffffff;
+  font-size: 1rem;
+  font-weight: 400;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+}
+
+/* Logout button */
+.navbar button {
+  background: #ff6b6b; /* Vibrant red for logout */
+  border: none;
+  color: #ffffff;
+  font-size: 1rem;
+  font-weight: 500;
+  padding: 0.5rem 1.5rem;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+/* Hover effect for button */
+.navbar button:hover {
+  background: #ff8787; /* Lighter red on hover */
+  transform: translateY(-2px); /* Lift effect */
+  box-shadow: 0 4px 10px rgba(255, 107, 107, 0.3); /* Subtle shadow */
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    padding: 1rem;
+  }
+
+  .navbar a {
+    margin: 0.5rem 0;
+  }
+
+  .navbar div {
+    margin-top: 1rem;
+  }
+}

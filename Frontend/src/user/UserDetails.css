@@ -1,0 +1,150 @@
+.user-details-container {
+  max-width: 1000px;
+  margin: 80px auto 0;
+  padding: 2rem;
+  background: #ffffff;
+  border-radius: 15px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+  font-family: 'Poppins', sans-serif;
+  animation: fadeIn 0.5s ease-in;
+  margin-bottom: 100px;
+}
+
+.user-details-container h2 {
+  text-align: center;
+  color: #333;
+  margin-bottom: 2rem;
+  font-size: 1.8rem;
+  font-weight: 600;
+}
+
+.message {
+  padding: 12px;
+  margin-bottom: 1.5rem;
+  background-color: #d4edda;
+  color: #155724;
+  border: 1px solid #c3e6cb;
+  border-radius: 5px;
+  text-align: center;
+  font-size: 0.95rem;
+}
+
+.message.error {
+  background-color: #f8d7da;
+  color: #721c24;
+  border-color: #f5c6cb;
+}
+
+.user-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  margin-top: 1rem;
+}
+
+.user-table th,
+.user-table td {
+  padding: 1.2rem;
+  text-align: left;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.user-table th {
+  background: linear-gradient(135deg, #6e8efb, #a777e3);
+  color: #fff;
+  font-weight: 600;
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.user-table td {
+  color: #444;
+  font-size: 0.95rem;
+}
+
+.user-table tr:nth-child(even) {
+  background: #f9f9f9;
+}
+
+.user-table tr:hover {
+  background: #e9ecef;
+  transition: background 0.3s ease;
+}
+
+/* New styling for action buttons container */
+.action-buttons {
+  display: flex; /* Arrange buttons side by side */
+  gap: 0.75rem; /* Space between buttons */
+  justify-content: flex-start; /* Align buttons to the left */
+  align-items: center; /* Vertically center buttons */
+}
+
+/* Button styles */
+.edit-btn,
+.delete-btn {
+  padding: 0.6rem 1.2rem;
+  border: none;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.edit-btn {
+  background: #6e8efb;
+  color: #fff;
+}
+
+.edit-btn:hover {
+  background: #5a78e0;
+  transform: translateY(-3px);
+  box-shadow: 0 4px 12px rgba(110, 142, 251, 0.4);
+}
+
+.delete-btn {
+  background: #ff6b6b;
+  color: #fff;
+}
+
+.delete-btn:hover {
+  background: #ff8787;
+  transform: translateY(-3px);
+  box-shadow: 0 4px 12px rgba(255, 107, 107, 0.4);
+}
+
+/* Animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .user-details-container {
+    margin: 60px 1rem 0;
+    padding: 1.5rem;
+  }
+
+  .user-table th,
+  .user-table td {
+    padding: 0.8rem;
+    font-size: 0.85rem;
+  }
+
+  .action-buttons {
+    gap: 0.5rem; /* Slightly less space on smaller screens */
+  }
+
+  .edit-btn,
+  .delete-btn {
+    padding: 0.4rem 0.8rem;
+  }
+}
