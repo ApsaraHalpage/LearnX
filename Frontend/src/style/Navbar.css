@@ -1,85 +1,131 @@
-.navbar {
-  background: linear-gradient(135deg, #6e8efb, #a777e3); /* Vibrant gradient background */
-  padding: 1rem 2rem;
+/* Sidebar Container */
+.sidebar {
   position: fixed;
-  width: 100%;
   top: 0;
-  z-index: 1000;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-family: 'Poppins', sans-serif; /* Modern font - ensure it's imported */
+  left: 0;
+  width: 250px;
+  height: 100vh;
+  background: linear-gradient(135deg, #6e8efb, #a777e3); /* Matches your theme */
+  color: #ffffff;
+  padding: 1rem 0;
+  font-family: 'Poppins', sans-serif;
+  box-shadow: 2px 0 10px rgba(0, 0, 0, 0.2);
+  overflow-y: auto;
+  transition: width 0.3s ease;
 }
 
-/* Links styling */
-.navbar a {
+/* Logo */
+.sidebar-logo {
+  font-size: 1.8rem;
+  font-weight: 700;
+  text-align: center;
+  padding: 1.5rem 0;
+  color: #ffffff;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Menu List */
+.sidebar-menu {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* Sidebar Item */
+.sidebar-item {
+  margin-bottom: 0.5rem;
+}
+
+/* Sidebar Link */
+.sidebar-link {
+  display: flex;
+  align-items: center;
+  padding: 0.75rem 1.5rem;
   color: #ffffff;
   text-decoration: none;
-  font-size: 1.1rem;
+  font-size: 1rem;
   font-weight: 500;
-  padding: 0.5rem 1rem;
-  border-radius: 25px; /* Rounded edges */
-  transition: all 0.3s ease; /* Smooth transitions */
-  margin-right: 1rem; /* Spacing between links */
+  transition: background 0.3s ease, padding-left 0.3s ease;
+  cursor: pointer;
 }
 
-/* Hover effect for links */
-.navbar a:hover {
-  background-color: rgba(255, 255, 255, 0.1); /* Slight white overlay */
-  color: #fff;
-  transform: translateY(-2px); /* Slight lift effect */
+.sidebar-link:hover {
+  background: rgba(255, 255, 255, 0.2);
+  padding-left: 2rem; /* Slight indent on hover */
 }
 
-/* User info section */
-.navbar div {
+/* Icon */
+.icon {
+  margin-right: 1rem;
+  font-size: 1.2rem;
+}
+
+/* Dropdown */
+.dropdown {
+  position: relative;
+}
+
+.dropdown-icon {
+  margin-left: auto;
+  transition: transform 0.3s ease;
+}
+
+.dropdown-icon.rotate {
+  transform: rotate(180deg);
+}
+
+/* Submenu */
+.submenu {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  background: rgba(0, 0, 0, 0.1);
+  border-left: 3px solid #ffffff;
+}
+
+.submenu-link {
   display: flex;
   align-items: center;
-  gap: 1rem; /* Spacing between welcome text and button */
-}
-
-/* Welcome text */
-.navbar span {
+  padding: 0.6rem 2rem;
   color: #ffffff;
-  font-size: 1rem;
-  font-weight: 400;
-  background: rgba(255, 255, 255, 0.1);
-  padding: 0.5rem 1rem;
-  border-radius: 20px;
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: background 0.3s ease;
 }
 
-/* Logout button */
-.navbar button {
-  background: #ff6b6b; /* Vibrant red for logout */
+.submenu-link:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+/* Logout Button */
+.logout-btn {
+  background: none;
   border: none;
-  color: #ffffff;
-  font-size: 1rem;
-  font-weight: 500;
-  padding: 0.5rem 1.5rem;
-  border-radius: 25px;
-  cursor: pointer;
-  transition: all 0.3s ease;
+  width: 100%;
+  text-align: left;
 }
 
-/* Hover effect for button */
-.navbar button:hover {
-  background: #ff8787; /* Lighter red on hover */
-  transform: translateY(-2px); /* Lift effect */
-  box-shadow: 0 4px 10px rgba(255, 107, 107, 0.3); /* Subtle shadow */
+.logout-btn:hover {
+  background: #ff6b6b; /* Red for logout */
 }
 
-/* Responsive design */
+/* Responsive Design */
 @media (max-width: 768px) {
-  .navbar {
-    flex-direction: column;
-    padding: 1rem;
+  .sidebar {
+    width: 200px;
   }
 
-  .navbar a {
-    margin: 0.5rem 0;
+  .sidebar-logo {
+    font-size: 1.5rem;
   }
 
-  .navbar div {
-    margin-top: 1rem;
+  .sidebar-link {
+    font-size: 0.9rem;
+    padding: 0.6rem 1rem;
+  }
+
+  .submenu-link {
+    font-size: 0.85rem;
+    padding: 0.5rem 1.5rem;
   }
 }

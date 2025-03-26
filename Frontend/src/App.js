@@ -10,6 +10,7 @@ import UserLogin from './user/UserLogin';
 import UserRegistration from './user/UserRegistration';
 import UserDetails from './user/UserDetails';
 import UserEdit from './user/UserEdit';
+import Payment from './Payment/Payment';
 import './App.css';
 
 const App = () => {
@@ -29,6 +30,7 @@ const App = () => {
             <Route path="/register" element={<UserRegistration />} />
             <Route path="/user-details" element={<UserDetails />} />
             <Route path="/user-edit/:id" element={<UserEdit />} />
+            <Route path="/payment" element={<Payment />} />
           </Routes>
         </div>
         <Footer />
