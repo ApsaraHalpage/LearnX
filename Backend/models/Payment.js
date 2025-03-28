@@ -4,7 +4,7 @@ const paymentSchema = new mongoose.Schema({
   userId: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'User',
-    required: false, // Optional for anonymous payments
+    required: false,
   },
   amount: {
     type: Number,
