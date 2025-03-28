@@ -3,7 +3,8 @@ import axios from 'axios';
 import './Payment.css';
 import { loadStripe } from '@stripe/stripe-js';
 
-const stripePromise = loadStripe('12345'); // Replace with your Stripe publishable key
+// Replace with your actual Stripe publishable key
+const stripePromise = loadStripe('pk_test_51R7dnkE8bW5YABdDFkLXKlsatcospBFSboYflmq0qGw6hbr1ngUXzHJpXXehkpzRinhhHayzhI6D6D44meDkcNMt00avENlSbW');
 
 const Payment = ({ user }) => {
   const [formData, setFormData] = useState({
@@ -76,37 +77,38 @@ const Payment = ({ user }) => {
 
     setLoading(true);
     try {
-      // Step 1: Create Payment Intent
+      console.log('Sending payment request:', { userId: user?.id, amount: formData.amount, type: formData.paymentType });
       const response = await axios.post('http://localhost:5000/api/payment/create', {
         userId: user?.id,
         amount: formData.amount,
         type: formData.paymentType,
-        // courseId: 'optional_course_id' // Uncomment and add if linking to a course
       });
       const { clientSecret, paymentId } = response.data;
+      console.log('Payment intent created:', { clientSecret, paymentId });
 
       setCurrentPaymentId(paymentId);
 
-      // Step 2: Confirm Payment with Stripe
       const stripe = await stripePromise;
       const result = await stripe.confirmCardPayment(clientSecret, {
         payment_method: {
           card: {
             number: formData.cardNumber,
-            exp_month: formData.expiry.split('/')[0],
-            exp_year: formData.expiry.split('/')[1],
+            exp_month: parseInt(formData.expiry.split('/')[0], 10),
+            exp_year: parseInt(formData.expiry.split('/')[1], 10),
             cvc: formData.cvv,
           },
           billing_details: { name: formData.name },
         },
       });
 
-      if (result.error) throw new Error(result.error.message);
+      if (result.error) {
+        console.error('Stripe confirmation error:', result.error);
+        throw new Error(result.error.message);
+      }
 
-      // Step 3: Confirm Payment on Backend
+      console.log('Stripe payment confirmed:', result.paymentIntent);
       await axios.post('http://localhost:5000/api/payment/confirm', { paymentId });
 
-      // Update UI
       const transaction = {
         _id: paymentId,
         amount: formData.amount,
@@ -126,7 +128,8 @@ const Payment = ({ user }) => {
         amount: ''
       });
     } catch (error) {
-      setErrors({ submit: error.message || 'Payment failed. Please try again.' });
+      console.error('Payment error:', error.response?.data || error.message);
+      setErrors({ submit: error.response?.data?.message || 'Payment failed. Please try again.' });
     }
     setLoading(false);
   };

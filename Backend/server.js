@@ -9,6 +9,10 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
+console.log('sk_test_51R7dnkE8bW5YABdDjL33JGQTUUdpe5hUgPFJJTgHiOmtWBrMgnGpgEx2yUIfzxSBrBAxRS2sAbLGU4ZBzAgWxBjm007erskaMU:',
+   process.env.STRIPE_SECRET_KEY ? 'Set' : 'Not set');
+console.log('mongodb+srv://sahandarmasena0:tXanEUZz3pgeVWLH@itpmcluster.ilg9r.mongodb.net/?retryWrites=true&w=majority&appName=ITPMcluster:', process.env.MONGO_URI);
+
 mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true })
   .then(() => console.log('MongoDB connected'))
   .catch(err => console.log('MongoDB connection error:', err));
